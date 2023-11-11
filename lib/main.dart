@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geprek_lensu/menu.dart';
+import 'package:geprek_lensu/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,4 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
