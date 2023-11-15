@@ -144,7 +144,7 @@ Metode ini akan menambahkan layar baru (atau bisa disebut sebagai ThirdScreen) k
 
 **3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
    
-Elemen input pertama pada form adalah nama (_name_). Saya menggunakannya untuk mengambil input nama produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
+Elemen input pertama pada form adalah nama (_name_). Saya menggunakannya untuk mengambil input nama item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -170,7 +170,7 @@ child: TextFormField(
 
 ```
 
-Elemen input kedua pada form adalah jumlah (_amount_). Saya menggunakannya untuk mengambil input jumlah produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong atau tidak berupa angka. Berikut ini adalah kodenya.
+Elemen input kedua pada form adalah jumlah (_amount_). Saya menggunakannya untuk mengambil input jumlah item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong atau tidak berupa angka. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -199,7 +199,7 @@ child: TextFormField(
 
 ```
 
-Elemen input ketiga pada form adalah deskripsi (_description_). Saya menggunakannya untuk mengambil input deskripsi produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
+Elemen input ketiga pada form adalah deskripsi (_description_). Saya menggunakannya untuk mengambil input deskripsi item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -254,7 +254,7 @@ Pada bagian ini, saya akan melakukan penambahan fitur navigasi pada tombol yang 
 
 ```
 // Navigate ke route yang sesuai (tergantung jenis tombol)
-            if (item.name == "Tambah Produk") {
+            if (item.name == "Tambah Item") {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ShopFormPage()),
@@ -265,7 +265,7 @@ Pada bagian ini, saya akan melakukan penambahan fitur navigasi pada tombol yang 
 
 - [x] Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah `pop-up` setelah menekan tombol `Save` pada halaman formulir tambah item baru.
 
-Pada bagian ini, saya fokus pada penambahan fungsionalitas pada tombol `Save` pada form yang telah dibuat sebelumnya. Pada bagian `onPressed()`, saya menambahkan fungsi untuk memunculkan sebuah dialog menggunakan `showDialog()`, di mana dialog ini akan memberikan _feedback_ kepada pengguna bahwa produk telah berhasil tersimpan dan memunculkan informasi produk yang telah dimasukkan oleh pengguna, seperti nama, jumlah, dan deskripsi. Saya juga telah memastikan bahwa form telah divalidasi dengan potongan kode `if(_formKey.currentState!.validate())`. Terdapat pula potongan kode `_formKey.currentState!.reset()` untuk memastikan bahwa formulir akan dikosongkan setelah pengguna berhasil menyimpan produk dan melihat dialog. Berikut ini adalah kodenya.
+Pada bagian ini, saya fokus pada penambahan fungsionalitas pada tombol `Save` pada form yang telah dibuat sebelumnya. Pada bagian `onPressed()`, saya menambahkan fungsi untuk memunculkan sebuah dialog menggunakan `showDialog()`, di mana dialog ini akan memberikan _feedback_ kepada pengguna bahwa item telah berhasil tersimpan dan memunculkan informasi item yang telah dimasukkan oleh pengguna, seperti nama, jumlah, dan deskripsi. Saya juga telah memastikan bahwa form telah divalidasi dengan potongan kode `if(_formKey.currentState!.validate())`. Terdapat pula potongan kode `_formKey.currentState!.reset()` untuk memastikan bahwa formulir akan dikosongkan setelah pengguna berhasil menyimpan item dan melihat dialog. Berikut ini adalah kodenya.
 
 ```
 onPressed: () {
@@ -274,7 +274,7 @@ onPressed: () {
        context: context,
        builder: (context) {
          return AlertDialog(
-           title: const Text('Produk berhasil tersimpan'),
+           title: const Text('Item berhasil tersimpan'),
            content: SingleChildScrollView(
              child: Column(
                crossAxisAlignment:
