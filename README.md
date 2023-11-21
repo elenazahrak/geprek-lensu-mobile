@@ -384,7 +384,7 @@ Pertama-tama, dari sisi Django, kita dapat membuat proses autentikasi dengan mem
 
 `SingleChildScrollView`: widget yang digunakan sehingga halaman dapat di-scroll
 
-Row` dan `Column`: widget layout linier yang mengatur widget secara horizontal yaitu menggunakan `Row`, atau vertikal yaitu menggunakan `Column`. `Row` dan `Column` digunakan ketika kita ingin menyusun widget secara berurutan, misalnya menyusun tombol atau teks secara horizontal atau vertikal.
+`Row` dan `Column`: widget layout linier yang mengatur widget secara horizontal yaitu menggunakan `Row`, atau vertikal yaitu menggunakan `Column`. `Row` dan `Column` digunakan ketika kita ingin menyusun widget secara berurutan, misalnya menyusun tombol atau teks secara horizontal atau vertikal.
 
 `Padding`: widget yang memberikan jarak di sekitar widget
 
@@ -417,22 +417,37 @@ ListView` dan `GridView`: widget layout yang menyusun widget secara berurutan at
 
 - [x] Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
 
-- [x] Membuat halaman login pada proyek tugas Flutter.
+Pada bagian ini, saya melakukan pengecekan pada tautan [http://elena-zahra-tugas.pbp.cs.ui.ac.id](http://elena-zahra-tugas.pbp.cs.ui.ac.id)
 
+- [x] Membuat halaman login pada proyek tugas Flutter.
 - [x] Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
+
+Untuk menjawab pertanyaan bagian b dan c, pertama-tama saya menginstal package yang telah disediakan oleh tim asisten dosen dengan perintah `flutter pub add pbp_django_auth`, lalu saya memodifikasi root widget dalam proyek Flutter untuk menyediakan library `CookieRequest` ke semua child wdgetsnya dengan menggunakan `Provider`. Selanjutnya, saya membuat halaman login dengan membuat berkas baru bernama `login.dart` pada folder `screens`. Berkas ini diisi dengan kode yang umumnya digunakan untuk halaman login, misalnya meminta pengguna memasukkan user dan password, serta tombol yang dapat diklik oleh pengguna. Setelah itu, aplikasi Flutter telah berhasil diintegrasikan dengan sistem autentikasi Django dan pengguna dapat melakukan login.
 
 - [x] Membuat model kustom sesuai dengan proyek aplikasi Django.
 
-- [x] Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
+Pada bagian ini, saya menggunakan website bernama Quicktype untuk mempermudah proses pembuatan model kustom sesuai dengan data JSON pada proyek aplikasi Django saya. Pertama-tama, saya membuka endpoint JSON yang pernah saya buat sebelumnya lalu mengunjungi website Quicktype untuk melakukan konversi. Setelah mengubah pengaturan dengan menetapkan nama model sebagai “Product”, source type sebagai “JSON”, dan language sebagai “Dart”, saya menampilkan data JSON yang telah disalin sebelumnya ke dalam textbox yang ada pada website tersebut dan menyalin kode model yang telah dihasilkan. Data ini saya masukkan ke dalam sebuah berkas baru bernama `product.dart` yang saya buat dalam folder baru yang bernama `models`.
 
+- [x] Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
    - [x] Tampilkan name, amount, dan description dari masing-masing item pada halaman ini.
+  
+Pada bagian ini, pertama-tama saya menambahkan dependensi HTTP pada proyek Flutter dengan perintah `flutter pub add http` dan menambahkan izin akses internet pada berkas `android/app/src/main/AndroidManifest.xml`. Selanjutnya, saya membuat berkas barubernama `list_product.dart` pada folder `lib/screens`. Berkas ini saya isi dengan mendefinisikan class `ProductPage` sebagai StatefulWidget. Saya menggunakan `FutureBuilder` pada fungsi `build` untuk menampilkan daftat produk. Produk akan ditampilkan dengan menggunakan `ListView.builder` dengan informasi-informasi produk seperti nama, jumlah, dan deskripsi dari produk tersebut. Saya juga menambahkan halaman `ProductPage` ini ke dalam drawer dengan menambahkan ListTile dan mengubah fungsi tombol “Lihat Produk” supaya mengarah ke halaman `shop_card.dart`.
 
 - [x] Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
-
    - [x] Halaman ini dapat diakses dengan menekan salah satu item pada halaman daftar Item.
-
    - [x] Tampilkan seluruh atribut pada model item kamu pada halaman ini.
-
    - [x] Tambahkan tombol untuk kembali ke halaman daftar item.
+
+Pada bagian ini, saya memanfaatkan fungsi `Navigator.push` untuk membuka halaman baru saat salah satu item diklik. Pada halaman ini, saya menampilkan seluruh atribut yang ada di model item, di antaranya nama, jumlah, dan deskripsi. Saya juga menambahkan tombol supaya dapat kembali ke halaman sebelumnya dengan perintah
+
+```
+ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); // Kembali ke halaman sebelumnya
+              },
+              child: Text('Kembali'),
+            ),
+
+
 
 </details>
