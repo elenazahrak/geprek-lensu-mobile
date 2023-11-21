@@ -356,6 +356,63 @@ Pertama-tama, dari sisi Django, kita dapat membuat proses autentikasi dengan mem
 
 **5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**
 
+`MaterialApp`: widget root dari widget-tree Flutter dan menyediakan beberapa konfigurasi untuk aplikasi
+
+`Scaffold`: widget yang menyediakan struktur dasar untuk aplikasi
+
+`AppBar`: widget yang menampilkan app bar yang berisi judul aplikasi atau halaman
+
+`Drawer`: widget yang menampilkan menu navigasi yang dapat diakses dengan menggeser dari kiri ke kanan
+
+`Form`: widget yang menyimpan formulir Flutter dan menyediakan metode untuk memvalidasi, menyimpan, serta mereset aplikasi
+
+`TextFormField`: widget untuk membuat input field sehingga pengguna dapat memasukkan teks
+
+`EvelatedButton`: widget untuk membuat tombol dengan efek “terang” saat ditekan
+
+`FutureBuilder`: widget yang menggunakan nilai yang dihasilkan oleh `Future` untuk membangun UI-nya
+
+`TextField`: widget untuk membuat kotak teks tempat pengguna dapat memasukkan input
+
+`AlertDialog`: widget untuk menampilkan dialog dengan judul dan konten tertentu
+
+`Consumer` dan `Provider`: widget untuk mengonsumsi dan menyediakan objek untuk `CookieRequest`
+
+`Key` (GlobalKey<FormState>): widget untuk mengidentifikasi suatu widget di antara widget lainnya
+
+`LeftDrawer`: widget untuk mendefinisikan drawer di bagian kiri halaman
+
+`SingleChildScrollView`: widget yang digunakan sehingga halaman dapat di-scroll
+
+Row` dan `Column`: widget layout linier yang mengatur widget secara horizontal yaitu menggunakan `Row`, atau vertikal yaitu menggunakan `Column`. `Row` dan `Column` digunakan ketika kita ingin menyusun widget secara berurutan, misalnya menyusun tombol atau teks secara horizontal atau vertikal.
+
+`Padding`: widget yang memberikan jarak di sekitar widget
+
+`Text`: widget yang menampilkan teks “PBP Shop”
+
+`GridView.count`: widget yang menampilkan daftar item dalam grid
+
+`ShopBar`: widget khusus yang digunakan untuk setiap item di gridnya
+ListView` dan `GridView`: widget layout yang menyusun widget secara berurutan atau dalam bentuk grid. `ListView` digunakan ketika kita ingin menampilkan daftar item secara berurutan, sedangkan `GridView` digunakan jika kita ingin menampilkan daftar item dalam bentuk grid.
+
+`DrawerHeader`: widget yang menampilkan bagian header dari drawer
+
+`ListTile`: widget yang menampilkan setiap item di dalam daftar drawer
+
+`Icon`: widget yang menampilkan ikon di sebelah kiri teks pada `ListTile`
+
+`Navigator.pushReplacement`: widget yang digunakan untuk melakukan navigasi dan mengganti halaman utama
+
+`Card`: widget layout yang memberikan layout dasar untuk menampilkan informasi dalam bentuk kartu. `Card` digunakan ketika kita ingin menampilkan informasi, misalnya gambar dan juga teks, dalam bentuk kartu.
+
+`InkWell`: widget yang digunakan untuk menampilkan efek ‘splash’ dalam bentuk kartu
+
+`SnackBar`: widget yang akan menampilkan pesan singkat di bagian bawah layar
+
+`Navigator.push`: widget yang akan digunakan untuk melakukan navigasi ke halaman baru
+
+`Container`: widget layout yang dapat mengandung widget lainnya, serta menyediakan sejumlah properti seperti margin, padding, dan dekorasi visual. `Container` digunakan ketika mengelompokkan widget, memberikan padding, atau memberikan dekorasi visual pada interface pengguna.
+
 **6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
 
 - [x] Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
