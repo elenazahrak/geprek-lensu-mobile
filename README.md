@@ -327,3 +327,55 @@ git commit -m "<pesan_commit>"
 git push -u origin <branch_utama>
 ```
 </details>
+
+<details>
+<summary>Tugas 9</summary>
+<br>
+
+**1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+
+Ya, kita dapat melakukan pengambilan data JSON tanpa membuat model terlebih dahulu dengan mengakses dan membaca struktur data JSON. Hal ini dilakukan dengan mengekstrak beberapa struktur data sederhana dari format JSON. Cara ini dinilai lebih sederhana dan cepat. Akan tetapi, jika kita memiliki data JSON yang lebih kompleks dengan jenis data yang bervariasi, pembuatan model dapat lebih membantu kita dalam pengelolaan data sehingga lebih terstruktur.
+
+**2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.**
+
+Secara umum, cookie merupakan sebuah mekanisme penyimpanan yang digunakan oleh server untuk menyimpan informasi pada client-side. Hal yang biasanya disimpan oleh cookie misalnya adalah informasi otentikasi dan juga data sesi. CookieRequest digunakan untuk mengelola informasi dan juga merepresentasikan cookie dalam aplikasi Flutter yang berkomunikasi dengan server melalui protokol HTTP. Dengan membagikan instance CookieRequest ke semua komponen di aplikasi flutter, kita dapat menghindari konflik terkait cara setiap komponen dalam menangani cookies. Hal ini berguna untuk memastikan konsistensi dari sesi pengguna dan otentikasi. Kita juga dapat menghindari penggunaan sumber daya yang berlebih akibat pembuatan instance yang berlebihan.
+
+**3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+
+Pengambilan dan penampilan data dari JSON ke dalam aplikasi Flutter dapat dilakukan dengan mengikuti panduan di bawah ini:
+
+1. Menambahkan dependensi http ke proyek untuk bertukar HTTP request
+2. Membuat model sesuai dengan respons dari data yang berasal dari web service tersebut
+3. Membuat http request ke web service menggunakan dependensi http
+4. Melakukan konversi objek yang didapatkan dari web service ke model yang telah dibuat sebelumnya
+5. Menampilkan data yang sudah dikonversi ke aplikasi dengan FutureBuilder.
+   
+**4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.**
+
+Pertama-tama, dari sisi Django, kita dapat membuat proses autentikasi dengan membuat django-app bernama “authentication”, menambahkannya ke INSTALLED_APPS, menginstal library yang dibutuhkan, dan menambahkan beberapa konfigurasi di settings.py. Penggunaan package “pbp_django_auth” digunakan untuk memfasilitasi komunikasi antara aplikasi Flutter dengan Django. Setelah itu, pengguna di Flutter akan memasukkan informasi login, misalnya username dan password. Informasi ini akan dikirim ke Django melalui permintaan HTTP. Agar Django dapat memproses informasi ini, kita perlu membuat kode pada views.py untuk bagian proses login dan mengatur URL routing.Setelah proses autentikasi berhasil, Django akan mengirim respons ke Flutter yang berisi informasi status login, lalu Flutter akan melakukan navigasi ke halaman menu menggunakan widget Navigator. Terakhir, kita dapat mengakses data otentikasi dan menggunakannya dengan membagikan instance “CookieRequest”.
+
+**5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+
+**6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
+
+- [x] Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
+
+- [x] Membuat halaman login pada proyek tugas Flutter.
+
+- [x] Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
+
+- [x] Membuat model kustom sesuai dengan proyek aplikasi Django.
+
+- [x] Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
+
+   - [x] Tampilkan name, amount, dan description dari masing-masing item pada halaman ini.
+
+- [x] Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
+
+   - [x] Halaman ini dapat diakses dengan menekan salah satu item pada halaman daftar Item.
+
+   - [x] Tampilkan seluruh atribut pada model item kamu pada halaman ini.
+
+   - [x] Tambahkan tombol untuk kembali ke halaman daftar item.
+
+</details>
