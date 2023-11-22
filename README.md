@@ -144,7 +144,7 @@ Metode ini akan menambahkan layar baru (atau bisa disebut sebagai ThirdScreen) k
 
 **3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
    
-Elemen input pertama pada form adalah nama (_name_). Saya menggunakannya untuk mengambil input nama produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
+Elemen input pertama pada form adalah nama (_name_). Saya menggunakannya untuk mengambil input nama item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -170,7 +170,7 @@ child: TextFormField(
 
 ```
 
-Elemen input kedua pada form adalah jumlah (_amount_). Saya menggunakannya untuk mengambil input jumlah produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong atau tidak berupa angka. Berikut ini adalah kodenya.
+Elemen input kedua pada form adalah jumlah (_amount_). Saya menggunakannya untuk mengambil input jumlah item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong atau tidak berupa angka. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -199,7 +199,7 @@ child: TextFormField(
 
 ```
 
-Elemen input ketiga pada form adalah deskripsi (_description_). Saya menggunakannya untuk mengambil input deskripsi produk dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
+Elemen input ketiga pada form adalah deskripsi (_description_). Saya menggunakannya untuk mengambil input deskripsi item dari pengguna dan memberikan _feedback_ atau peringatan jika pengguna berusaha untuk melakukan _submit_ input kosong. Berikut ini adalah kodenya.
 
 ```
 child: TextFormField(
@@ -254,7 +254,7 @@ Pada bagian ini, saya akan melakukan penambahan fitur navigasi pada tombol yang 
 
 ```
 // Navigate ke route yang sesuai (tergantung jenis tombol)
-            if (item.name == "Tambah Produk") {
+            if (item.name == "Tambah Item") {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ShopFormPage()),
@@ -265,7 +265,7 @@ Pada bagian ini, saya akan melakukan penambahan fitur navigasi pada tombol yang 
 
 - [x] Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah `pop-up` setelah menekan tombol `Save` pada halaman formulir tambah item baru.
 
-Pada bagian ini, saya fokus pada penambahan fungsionalitas pada tombol `Save` pada form yang telah dibuat sebelumnya. Pada bagian `onPressed()`, saya menambahkan fungsi untuk memunculkan sebuah dialog menggunakan `showDialog()`, di mana dialog ini akan memberikan _feedback_ kepada pengguna bahwa produk telah berhasil tersimpan dan memunculkan informasi produk yang telah dimasukkan oleh pengguna, seperti nama, jumlah, dan deskripsi. Saya juga telah memastikan bahwa form telah divalidasi dengan potongan kode `if(_formKey.currentState!.validate())`. Terdapat pula potongan kode `_formKey.currentState!.reset()` untuk memastikan bahwa formulir akan dikosongkan setelah pengguna berhasil menyimpan produk dan melihat dialog. Berikut ini adalah kodenya.
+Pada bagian ini, saya fokus pada penambahan fungsionalitas pada tombol `Save` pada form yang telah dibuat sebelumnya. Pada bagian `onPressed()`, saya menambahkan fungsi untuk memunculkan sebuah dialog menggunakan `showDialog()`, di mana dialog ini akan memberikan _feedback_ kepada pengguna bahwa item telah berhasil tersimpan dan memunculkan informasi item yang telah dimasukkan oleh pengguna, seperti nama, jumlah, dan deskripsi. Saya juga telah memastikan bahwa form telah divalidasi dengan potongan kode `if(_formKey.currentState!.validate())`. Terdapat pula potongan kode `_formKey.currentState!.reset()` untuk memastikan bahwa formulir akan dikosongkan setelah pengguna berhasil menyimpan item dan melihat dialog. Berikut ini adalah kodenya.
 
 ```
 onPressed: () {
@@ -274,7 +274,7 @@ onPressed: () {
        context: context,
        builder: (context) {
          return AlertDialog(
-           title: const Text('Produk berhasil tersimpan'),
+           title: const Text('Item berhasil tersimpan'),
            content: SingleChildScrollView(
              child: Column(
                crossAxisAlignment:
@@ -326,4 +326,128 @@ git add .
 git commit -m "<pesan_commit>"
 git push -u origin <branch_utama>
 ```
+</details>
+
+<details>
+<summary>Tugas 9</summary>
+<br>
+
+**1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+
+Ya, kita dapat melakukan pengambilan data JSON tanpa membuat model terlebih dahulu dengan mengakses dan membaca struktur data JSON. Hal ini dilakukan dengan mengekstrak beberapa struktur data sederhana dari format JSON. Cara ini dinilai lebih sederhana dan cepat. Akan tetapi, jika kita memiliki data JSON yang lebih kompleks dengan jenis data yang bervariasi, pembuatan model dapat lebih membantu kita dalam pengelolaan data sehingga lebih terstruktur.
+
+**2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.**
+
+Secara umum, cookie merupakan sebuah mekanisme penyimpanan yang digunakan oleh server untuk menyimpan informasi pada client-side. Hal yang biasanya disimpan oleh cookie misalnya adalah informasi otentikasi dan juga data sesi. CookieRequest digunakan untuk mengelola informasi dan juga merepresentasikan cookie dalam aplikasi Flutter yang berkomunikasi dengan server melalui protokol HTTP. Dengan membagikan instance CookieRequest ke semua komponen di aplikasi flutter, kita dapat menghindari konflik terkait cara setiap komponen dalam menangani cookies. Hal ini berguna untuk memastikan konsistensi dari sesi pengguna dan otentikasi. Kita juga dapat menghindari penggunaan sumber daya yang berlebih akibat pembuatan instance yang berlebihan.
+
+**3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+
+Pengambilan dan penampilan data dari JSON ke dalam aplikasi Flutter dapat dilakukan dengan mengikuti panduan di bawah ini:
+
+1. Menambahkan dependensi http ke proyek untuk bertukar HTTP request
+2. Membuat model sesuai dengan respons dari data yang berasal dari web service tersebut
+3. Membuat http request ke web service menggunakan dependensi http
+4. Melakukan konversi objek yang didapatkan dari web service ke model yang telah dibuat sebelumnya
+5. Menampilkan data yang sudah dikonversi ke aplikasi dengan FutureBuilder.
+   
+**4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.**
+
+Pertama-tama, dari sisi Django, kita dapat membuat proses autentikasi dengan membuat django-app bernama “authentication”, menambahkannya ke INSTALLED_APPS, menginstal library yang dibutuhkan, dan menambahkan beberapa konfigurasi di settings.py. Penggunaan package “pbp_django_auth” digunakan untuk memfasilitasi komunikasi antara aplikasi Flutter dengan Django. Setelah itu, pengguna di Flutter akan memasukkan informasi login, misalnya username dan password. Informasi ini akan dikirim ke Django melalui permintaan HTTP. Agar Django dapat memproses informasi ini, kita perlu membuat kode pada views.py untuk bagian proses login dan mengatur URL routing.Setelah proses autentikasi berhasil, Django akan mengirim respons ke Flutter yang berisi informasi status login, lalu Flutter akan melakukan navigasi ke halaman menu menggunakan widget Navigator. Terakhir, kita dapat mengakses data otentikasi dan menggunakannya dengan membagikan instance “CookieRequest”.
+
+**5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+
+`MaterialApp`: widget root dari widget-tree Flutter dan menyediakan beberapa konfigurasi untuk aplikasi
+
+`Scaffold`: widget yang menyediakan struktur dasar untuk aplikasi
+
+`AppBar`: widget yang menampilkan app bar yang berisi judul aplikasi atau halaman
+
+`Drawer`: widget yang menampilkan menu navigasi yang dapat diakses dengan menggeser dari kiri ke kanan
+
+`Form`: widget yang menyimpan formulir Flutter dan menyediakan metode untuk memvalidasi, menyimpan, serta mereset aplikasi
+
+`TextFormField`: widget untuk membuat input field sehingga pengguna dapat memasukkan teks
+
+`EvelatedButton`: widget untuk membuat tombol dengan efek “terang” saat ditekan
+
+`FutureBuilder`: widget yang menggunakan nilai yang dihasilkan oleh `Future` untuk membangun UI-nya
+
+`TextField`: widget untuk membuat kotak teks tempat pengguna dapat memasukkan input
+
+`AlertDialog`: widget untuk menampilkan dialog dengan judul dan konten tertentu
+
+`Consumer` dan `Provider`: widget untuk mengonsumsi dan menyediakan objek untuk `CookieRequest`
+
+`Key` (GlobalKey<FormState>): widget untuk mengidentifikasi suatu widget di antara widget lainnya
+
+`LeftDrawer`: widget untuk mendefinisikan drawer di bagian kiri halaman
+
+`SingleChildScrollView`: widget yang digunakan sehingga halaman dapat di-scroll
+
+`Row` dan `Column`: widget layout linier yang mengatur widget secara horizontal yaitu menggunakan `Row`, atau vertikal yaitu menggunakan `Column`. `Row` dan `Column` digunakan ketika kita ingin menyusun widget secara berurutan, misalnya menyusun tombol atau teks secara horizontal atau vertikal.
+
+`Padding`: widget yang memberikan jarak di sekitar widget
+
+`Text`: widget yang menampilkan teks “PBP Shop”
+
+`GridView.count`: widget yang menampilkan daftar item dalam grid
+
+`ShopBar`: widget khusus yang digunakan untuk setiap item di gridnya
+ListView` dan `GridView`: widget layout yang menyusun widget secara berurutan atau dalam bentuk grid. `ListView` digunakan ketika kita ingin menampilkan daftar item secara berurutan, sedangkan `GridView` digunakan jika kita ingin menampilkan daftar item dalam bentuk grid.
+
+`DrawerHeader`: widget yang menampilkan bagian header dari drawer
+
+`ListTile`: widget yang menampilkan setiap item di dalam daftar drawer
+
+`Icon`: widget yang menampilkan ikon di sebelah kiri teks pada `ListTile`
+
+`Navigator.pushReplacement`: widget yang digunakan untuk melakukan navigasi dan mengganti halaman utama
+
+`Card`: widget layout yang memberikan layout dasar untuk menampilkan informasi dalam bentuk kartu. `Card` digunakan ketika kita ingin menampilkan informasi, misalnya gambar dan juga teks, dalam bentuk kartu.
+
+`InkWell`: widget yang digunakan untuk menampilkan efek ‘splash’ dalam bentuk kartu
+
+`SnackBar`: widget yang akan menampilkan pesan singkat di bagian bawah layar
+
+`Navigator.push`: widget yang akan digunakan untuk melakukan navigasi ke halaman baru
+
+`Container`: widget layout yang dapat mengandung widget lainnya, serta menyediakan sejumlah properti seperti margin, padding, dan dekorasi visual. `Container` digunakan ketika mengelompokkan widget, memberikan padding, atau memberikan dekorasi visual pada interface pengguna.
+
+**6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
+
+- [x] Memastikan deployment proyek tugas Django kamu telah berjalan dengan baik.
+
+Pada bagian ini, saya melakukan pengecekan pada tautan [http://elena-zahra-tugas.pbp.cs.ui.ac.id](http://elena-zahra-tugas.pbp.cs.ui.ac.id)
+
+- [x] Membuat halaman login pada proyek tugas Flutter.
+- [x] Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
+
+Untuk menjawab pertanyaan bagian b dan c, pertama-tama saya menginstal package yang telah disediakan oleh tim asisten dosen dengan perintah `flutter pub add pbp_django_auth`, lalu saya memodifikasi root widget dalam proyek Flutter untuk menyediakan library `CookieRequest` ke semua child wdgetsnya dengan menggunakan `Provider`. Selanjutnya, saya membuat halaman login dengan membuat berkas baru bernama `login.dart` pada folder `screens`. Berkas ini diisi dengan kode yang umumnya digunakan untuk halaman login, misalnya meminta pengguna memasukkan user dan password, serta tombol yang dapat diklik oleh pengguna. Setelah itu, aplikasi Flutter telah berhasil diintegrasikan dengan sistem autentikasi Django dan pengguna dapat melakukan login.
+
+- [x] Membuat model kustom sesuai dengan proyek aplikasi Django.
+
+Pada bagian ini, saya menggunakan website bernama Quicktype untuk mempermudah proses pembuatan model kustom sesuai dengan data JSON pada proyek aplikasi Django saya. Pertama-tama, saya membuka endpoint JSON yang pernah saya buat sebelumnya lalu mengunjungi website Quicktype untuk melakukan konversi. Setelah mengubah pengaturan dengan menetapkan nama model sebagai “Product”, source type sebagai “JSON”, dan language sebagai “Dart”, saya menampilkan data JSON yang telah disalin sebelumnya ke dalam textbox yang ada pada website tersebut dan menyalin kode model yang telah dihasilkan. Data ini saya masukkan ke dalam sebuah berkas baru bernama `product.dart` yang saya buat dalam folder baru yang bernama `models`.
+
+- [x] Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
+   - [x] Tampilkan name, amount, dan description dari masing-masing item pada halaman ini.
+  
+Pada bagian ini, pertama-tama saya menambahkan dependensi HTTP pada proyek Flutter dengan perintah `flutter pub add http` dan menambahkan izin akses internet pada berkas `android/app/src/main/AndroidManifest.xml`. Selanjutnya, saya membuat berkas barubernama `list_product.dart` pada folder `lib/screens`. Berkas ini saya isi dengan mendefinisikan class `ProductPage` sebagai StatefulWidget. Saya menggunakan `FutureBuilder` pada fungsi `build` untuk menampilkan daftat produk. Produk akan ditampilkan dengan menggunakan `ListView.builder` dengan informasi-informasi produk seperti nama, jumlah, dan deskripsi dari produk tersebut. Saya juga menambahkan halaman `ProductPage` ini ke dalam drawer dengan menambahkan ListTile dan mengubah fungsi tombol “Lihat Produk” supaya mengarah ke halaman `shop_card.dart`.
+
+- [x] Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
+   - [x] Halaman ini dapat diakses dengan menekan salah satu item pada halaman daftar Item.
+   - [x] Tampilkan seluruh atribut pada model item kamu pada halaman ini.
+   - [x] Tambahkan tombol untuk kembali ke halaman daftar item.
+
+Pada bagian ini, saya memanfaatkan fungsi `Navigator.push` untuk membuka halaman baru saat salah satu item diklik. Pada halaman ini, saya menampilkan seluruh atribut yang ada di model item, di antaranya nama, jumlah, dan deskripsi. Saya juga menambahkan tombol supaya dapat kembali ke halaman sebelumnya dengan perintah
+
+```
+ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); // Kembali ke halaman sebelumnya
+              },
+              child: Text('Kembali'),
+            ),
+
+
+
 </details>
